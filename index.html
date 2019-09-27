@@ -9,14 +9,24 @@
 </head>
 <body>
     <div class='display' id='display1'>
-        <img id='img1' src='https://i.imgur.com/v355qTe.jpg'>
-        <div class='next-to'>
-            <h1 id='h1'></h1>
-            <p id='p'></p>
+        <div class='next-to' id='change'>
+            <img id='img' src='https://i.imgur.com/v355qTe.jpg'>
+
+            <div id='display-box'>
+                <h1></h1>
+                <p></p>
+            </div>
+            
+            <h1 class='hotel'></h1>
+            <h1 class='hotel'></h1>
         </div>
         
     </div>
-    <button onclick='changeImage()'>Click Me!</button>
+    <div id='buttons'>
+    <button onclick='image(hotels[0])'>Quay Hotel</button>
+    <button onclick='image(hotels[1]);'>CheckInPDX</button>
+    <button onclick=''>This one!</button>
+    </div>
     
 <!-- 
         <div class='display' id='display2'>
