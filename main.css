@@ -1,0 +1,37 @@
+.next-to {
+    height: 300px;
+    width: 850px;
+    background-color: black;
+    position: relative;
+    z-index: 1;
+    text-align: left;
+}
+#img1 {
+    height: 300px;
+    width: 500px;
+    position: absolute;
+    z-index: 0;
+    margin-left: -210px;
+}
+.display {
+    display: flex;
+    justify-content: center;
+}
+html {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+button {
+    display: block;
+    margin: 0 auto;
+}
+#h1 {
+    z-index: 2;
+    color: white;
+    padding-left: 10px;
+}
+#p {
+    z-index: 2
+}
