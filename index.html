@@ -8,6 +8,19 @@
     <link rel='stylesheet' type='text/css' href='./main.css'>
 </head>
 <body>
+    <div id='labels'>
+        <label>Hotel Name</label>
+        <label>Image (URL)</label>
+        <label>Number of Rooms</label>
+        <label>Rooms Booked</label>
+    </div>
+    <div id='inputs'>
+        <input type='text' id='name'>
+        <input type='text' id='image'>
+        <input type='text' id='rooms'>
+        <input type='text' id='booked'>
+    </div>
+        <button id='submit' onclick='makeHotel()'>New Hotel</button>
     <div class='display' id='display1'>
         <div class='next-to' id='change'>
             <img id='img' src='https://i.imgur.com/v355qTe.jpg'>
@@ -18,16 +31,16 @@
                 <p id='update-available'></p>
             </div>
 
-            <h1 class='hotel'></h1>
-            <h1 class='hotel'></h1>
-            <h1 class='hotel'></h1>
-        </div>
-        
+            <div id='hotel-text'>
+           
+            </div>
+        </div>    
     </div>
+
     <div id='buttons'>
-    <button onclick='image(hotels[0])'>Quay Hotel</button>
-    <button onclick='image(hotels[1]);'>CheckInPDX</button>
-    <button onclick='image(hotels[2])'>This one!</button>
+    <button class='button'> </button>
+    <button class='button'> </button>
+    <button class='button'> </button>
     </div>
     
 <!-- 

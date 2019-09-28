@@ -7,31 +7,73 @@ function Hotel(name, image, rooms, booked,) {
         return this.rooms - this.booked;
     };
 }
+
 let hotels = [
     new Hotel('Quay Hotel', 'https://i.imgur.com/v355qTe.jpg', 40, 25),
-    new Hotel('Check In Pdx', 'https://i.imgur.com/9ZVukc0.jpg', 15, 4),
-    new Hotel('Amsterdam Hotel', 'https://i.imgur.com/qtcmmvd.jpg', 34, 20)
+    new Hotel('American Hotel', 'https://i.imgur.com/9ZVukc0.jpg', 15, 4),
+    new Hotel('Amsterdam Hotel', 'https://i.imgur.com/qtcmmvd.jpg', 34, 20),
 ];
 
-//MADE HOTELS
-let hotelTitle = document.getElementsByClassName('hotel');
 
-for(let i = 0; i < hotels.length; i++) {
-    hotelTitle[i].textContent = hotels[i].name + ' has ' + hotels[i].availableRooms() + ' rooms available';    
+function makeHotel() {
+    let inputs = document.getElementsByTagName('input');
+    if(inputs[0].value === '' || inputs[1].value === '' || inputs[2].value === '' || inputs[3].value === '') {
+        return false;
+    } else {
+        let name = document.getElementById('name').value;
+        let image = document.getElementById('image').value;
+        let rooms = document.getElementById('rooms').value;
+        let booked = document.getElementById('booked').value;
+        const newHotel = new Hotel(name, image, rooms, booked);
+        hotels.push(newHotel);
+        console.log(newHotel);
+
+        const button = document.createElement('button');
+        const buttonDiv = document.getElementById('buttons');
+        button.classList.add('button');
+        buttonDiv.appendChild(button);
+        buttonText();
+        beginningText();
+        onClickButton();
+    }
 }
-for(let i = 0; i < hotels.length; i++) {
-    const buttons = document.querySelectorAll('button');
-    buttons[i].textContent = hotels[i].name;
+
+
+//MADE HOTELS
+function beginningText() {
+    for(let i = 0; i < hotels.length; i++) {
+        let div = document.getElementById('hotel-text');
+        let h1 = document.createElement('h1');
+        h1.classList.add('hotel');
+        div.appendChild(h1);
+    
+        let hotelTitle = document.getElementsByClassName('hotel');
+
+        hotelTitle[i].textContent = hotels[i].name + ' has ' + hotels[i].availableRooms() + ' rooms available';    
+    }
 }
+
+
+function buttonText() {
+    for(let i = 0; i < hotels.length; i++) {
+        const buttons = document.getElementsByClassName('button');
+        buttons[i].textContent = hotels[i].name;
+    }
+}
+buttonText();
+beginningText();
 //CHANGED TEXT OF DIV H1
 
 function image(file) {
+    let hotelTitle = document.getElementsByClassName('hotel');
     const img1 = document.getElementById('img');
     img1.style.height = '300px';
     img1.style.width = '500px';
-    hotelTitle[0].textContent = '';
-    hotelTitle[1].textContent = '';
-    hotelTitle[2].textContent = '';
+
+    for(let i = 0; i < hotels.length; i++) {
+        hotelTitle[i].textContent = '';
+    }
+
     img1.src = file.image;
     console.log(img1.src);
     document.getElementById('display-box').style.color = 'white';
@@ -42,6 +84,16 @@ function image(file) {
     let availableText = 'This hotel has ' + file.availableRooms() + ' rooms left to check out';
     document.getElementById('update-available').textContent = availableText;
 
+    document.getElementById('display-box').style.display = 'flex';
+
 }
+
+const buttons = document.getElementsByClassName('button');
+function onClickButton() {
+    for(let i = 0; i < buttons.length; i++) {
+        buttons[i].setAttribute('onclick', 'image(hotels[' + i + '])');
+    }
+}
+onClickButton();
 //FUNCTION ADDS IMAGE
 
