@@ -49,7 +49,7 @@ function beginningText() {
         let hotelTitle = document.getElementsByClassName('hotel');
 
         let updateName = document.getElementById('update-name').textContent;
-        if(updateName === ''){
+        if(updateName === '' && hotels.length < 6){
             hotelTitle[i].textContent = hotels[i].name + ' has ' + hotels[i].availableRooms() + ' rooms available';   
         } else {
             return;  
