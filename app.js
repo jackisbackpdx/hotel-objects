@@ -9,8 +9,8 @@ function Hotel(name, image, rooms, booked,) {
 }
 
 let hotels = [
-    new Hotel('Quay Hotel', 'https://i.imgur.com/v355qTe.jpg', 40, 25),
-    new Hotel('American Hotel', 'https://i.imgur.com/9ZVukc0.jpg', 15, 4),
+    new Hotel('Oslo Hotel', 'https://i.imgur.com/v355qTe.jpg', 40, 25),
+    new Hotel('Spain Hotel', 'https://i.imgur.com/9ZVukc0.jpg', 15, 4),
     new Hotel('Amsterdam Hotel', 'https://i.imgur.com/qtcmmvd.jpg', 34, 20),
 ];
 
