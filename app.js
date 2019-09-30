@@ -16,30 +16,29 @@ let hotels = [
 
 
 function makeHotel() {
+    let buttons = document.getElementsByClassName('button');
     let inputs = document.getElementsByTagName('input');
     if(inputs[0].value === '' || inputs[1].value === '' || inputs[2].value === '' || inputs[3].value === '') {
         return false;
-    } else {
+    } else if (buttons.length < 7){
         let name = document.getElementById('name').value;
         let image = document.getElementById('image').value;
         let rooms = document.getElementById('rooms').value;
         let booked = document.getElementById('booked').value;
         const newHotel = new Hotel(name, image, rooms, booked);
         hotels.push(newHotel);
-        console.log(newHotel);
-
+        
         const button = document.createElement('button');
         const buttonDiv = document.getElementById('buttons');
         button.classList.add('button');
         buttonDiv.appendChild(button);
         buttonText();
-        beginningText();
         onClickButton();
+        beginningText();
     }
 }
 
 
-//MADE HOTELS
 function beginningText() {
     for(let i = 0; i < hotels.length; i++) {
         let div = document.getElementById('hotel-text');
@@ -49,7 +48,12 @@ function beginningText() {
     
         let hotelTitle = document.getElementsByClassName('hotel');
 
-        hotelTitle[i].textContent = hotels[i].name + ' has ' + hotels[i].availableRooms() + ' rooms available';    
+        let updateName = document.getElementById('update-name').textContent;
+        if(updateName === ''){
+            hotelTitle[i].textContent = hotels[i].name + ' has ' + hotels[i].availableRooms() + ' rooms available';   
+        } else {
+            return;  
+        }
     }
 }
 
@@ -60,9 +64,10 @@ function buttonText() {
         buttons[i].textContent = hotels[i].name;
     }
 }
+
 buttonText();
 beginningText();
-//CHANGED TEXT OF DIV H1
+
 
 function image(file) {
     let hotelTitle = document.getElementsByClassName('hotel');
@@ -71,11 +76,10 @@ function image(file) {
     img1.style.width = '500px';
 
     for(let i = 0; i < hotels.length; i++) {
-        hotelTitle[i].textContent = '';
+        hotelTitle[i].style.display = 'none';
     }
 
     img1.src = file.image;
-    console.log(img1.src);
     document.getElementById('display-box').style.color = 'white';
 
     document.getElementById('update-name').textContent = file.name;
@@ -88,12 +92,24 @@ function image(file) {
 
 }
 
-const buttons = document.getElementsByClassName('button');
+
 function onClickButton() {
+    const buttons = document.getElementsByClassName('button');
     for(let i = 0; i < buttons.length; i++) {
         buttons[i].setAttribute('onclick', 'image(hotels[' + i + '])');
     }
 }
+
 onClickButton();
+
+function clearH1() {
+    let hotelTitle = document.getElementsByClassName('hotel');
+    for(let i = 0; i < hotelTitle.length; i++)
+    {
+        if(hotelTitle[i].textContent === true) {
+            hotelTitle[i].textContent = '';
+        }
+    }
+}
 //FUNCTION ADDS IMAGE
 

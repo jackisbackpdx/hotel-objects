@@ -31,6 +31,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: green;
 }
 #buttons {
     display: flex;
@@ -99,6 +100,7 @@ input {
     justify-content: space-around;
     height: 300px;
     border: 1px solid black;
+    background-color: white;
 }
 label {
     height: 25%;
